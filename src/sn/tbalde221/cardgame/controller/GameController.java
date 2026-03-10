@@ -6,17 +6,18 @@ import java.util.List;
 import sn.tbalde221.cardgame.model.Deck;
 import sn.tbalde221.cardgame.model.Player;
 import sn.tbalde221.cardgame.model.PlayingCard;
-import sn.tbalde221.cardgame.view.View;
+import sn.tbalde221.cardgame.view.CommandLineView;
+import sn.tbalde221.cardgame.view.GameViewable;
 
 
 public class GameController {
 	Deck deck;
 	List<Player> players;
 	Player winner;
-	View view;
+	GameViewable view;
 	GameState gameState;
 	GameEvaluator evaluator;
-	public GameController(Deck deck, View view, GameEvaluator evaluator) {
+	public GameController(Deck deck, GameViewable view, GameEvaluator evaluator) {
 		this.deck = deck;
 		this.view =view;
 		this.players = new ArrayList<Player>();
@@ -82,6 +83,17 @@ public class GameController {
 	}
 	private void displayWinner() {
 		view.showWinner(winner.getName());
+		
+	}
+	void exitGame() {
+		System.exit(0);
+	}
+	public void nextAction(String nextChoise) {
+		if ("+q".equals(nextChoise)) {
+			exitGame();
+		} else {
+			startGame();
+		}
 		
 	}
 }
