@@ -1,0 +1,82 @@
+package sn.tbalde221.cardgame.view;
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import sn.tbalde221.cardgame.controller.GameController;
+
+public class GameViewables implements GameViewable{
+	List<GameViewable> views;
+	public GameViewables() {
+		views = new ArrayList<GameViewable>();
+	}
+	public void addViewable(GameViewable view) {
+		views.add(view);	
+	}
+	@Override
+	public void setController(GameController gc) {
+		for(GameViewable view : views) {
+			view.setController(gc);
+		}
+		
+	}
+
+	@Override
+	public void promptForPlayerName() {
+		for(GameViewable view : views) {
+			view.promptForPlayerName();
+		}
+		
+	}
+
+	@Override
+	public void promptForFlip() {
+		for(GameViewable view : views) {
+			view.promptForFlip();
+		}
+		
+	}
+
+	@Override
+	public void promptForNewGame() {
+		for(GameViewable view : views) {
+			view.promptForNewGame();
+		}
+		
+	}
+
+	@Override
+	public void showWinner(String name) {
+		for(GameViewable view : views) {
+			view.showWinner(name);
+		}
+		
+	}
+
+	@Override
+	public void showPlayerName(int playerIndex, String playerName) {
+		for(GameViewable view : views) {
+			view.showPlayerName(playerIndex, playerName);
+		}
+		
+	}
+
+	@Override
+	public void showFaceDownCardForPlayer(int playerIndex, String name) {
+		for(GameViewable view : views) {
+			view.showFaceDownCardForPlayer(playerIndex, name);
+		}
+		
+	}
+
+	@Override
+	public void showCardForPlayer(int i, String name, String rank, String suit) {
+		for(GameViewable view : views) {
+			view.showCardForPlayer(i, name, rank, suit);
+		}
+		
+	}
+
+}

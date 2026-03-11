@@ -1,6 +1,7 @@
 package sn.tbalde221.cardgame.model;
 
-public class Player {
+public class Player implements IPlayer {
+
 	private String name;
 	private Hand hand;
 	public Player(String name) {
@@ -19,4 +20,5 @@ public class Player {
 	public String getName() {
 		return name;
 	}
+
 }
